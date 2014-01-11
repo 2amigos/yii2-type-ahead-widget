@@ -1,7 +1,7 @@
 {
     "name": "2amigos/yii2-type-ahead-widget",
     "description": "TypeAhead Bootstrap widget for Yii2.",
-    "keywords": ["widget", "yii"],
+    "keywords": ["widget", "yii", "typeahead", "bootstrap", "plugin"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
