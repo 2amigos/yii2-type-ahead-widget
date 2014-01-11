@@ -11,10 +11,13 @@
             "homepage": "http://2amigos.us"
         }
     ],
-    "requires" : {
-        "twitter/typeahead.js": "dev-master"
+    "require" : {
+        "twitter/typeahead.js": "dev-master",
+        "yiisoft/yii2": "*"
     },
     "autoload": {
-        "psr-4": { "dosamigos\\": "src/" }
+        "psr-4": {
+            "dosamigos\\yii2\\widgets\\": ""
+        }
     }
 }
