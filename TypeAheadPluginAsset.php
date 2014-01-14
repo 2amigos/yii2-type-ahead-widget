@@ -19,7 +19,7 @@ class TypeAheadPluginAsset extends AssetBundle
 
 	public function init()
 	{
-		$this->js = YII_DEBUG ? 'typeahead.js' : 'typeahead.min.js';
+		$this->js = YII_DEBUG ? ['typeahead.js'] : ['typeahead.min.js'];
 		parent::init();
 	}
 }
