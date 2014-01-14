@@ -4,7 +4,7 @@
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
-namespace dosamigos\yii2\widgets;
+namespace dosamigos\widgets;
 
 use yii\web\AssetBundle;
 
@@ -12,12 +12,14 @@ class TypeAheadPluginAsset extends AssetBundle
 {
 	public $sourcePath = '@vendor/twitter/typeahead.js/dist';
 
-	public $js = [
-		'typeahead.min.js',
-	];
-
 	public $depends = [
 		'yii\bootstrap\BootstrapPluginAsset',
-        'dosamigos\yii2\widgets\TypeAheadThemeAsset'
+        'dosamigos\widgets\TypeAheadAsset'
 	];
+
+	public function init()
+	{
+		$this->js = YII_DEBUG ? 'typeahead.js' : 'typeahead.min.js';
+		parent::init();
+	}
 }

@@ -4,11 +4,11 @@
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
-namespace dosamigos\yii2\widgets;
+namespace dosamigos\widgets;
 
 use yii\web\AssetBundle;
 
-class TypeAheadThemeAsset extends AssetBundle
+class TypeAheadAsset extends AssetBundle
 {
 	public $css = [
 		'css/bootstrap-typeahead.css'
@@ -16,7 +16,7 @@ class TypeAheadThemeAsset extends AssetBundle
 
     public function init()
     {
-        $this->sourcePath = dirname(__FILE__) . '/assets';
+        $this->sourcePath = __DIR__ . '/assets';
         parent::init();
     }
 }
