@@ -31,7 +31,7 @@ Usage
 Using a model and a `remote` configuration:
 
 ```
-use dosamigos\widgets\TypeAhead;
+use dosamigos\typeahead\TypeAhead;
 
 <?=TypeAhead::widget([
     'model' => $model,
