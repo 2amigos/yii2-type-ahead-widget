@@ -14,7 +14,7 @@ class TypeAheadPluginAsset extends AssetBundle
 
 	public $depends = [
 		'yii\bootstrap\BootstrapPluginAsset',
-        'dosamigos\widgets\TypeAheadAsset'
+        'dosamigos\typeahead\TypeAheadAsset'
 	];
 
 	public function init()

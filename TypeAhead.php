@@ -17,7 +17,7 @@ use Yii;
  * @author Antonio Ramirez <amigo.cobos@gmail.com>
  * @link http://www.ramirezcobos.com/
  * @link http://www.2amigos.us/
- * @package common\extensions\dosamigos\yii2\widgets
+ * @package dosamigos\typeahead
  */
 class TypeAhead extends InputWidget
 {
