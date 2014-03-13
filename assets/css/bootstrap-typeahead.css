@@ -70,6 +70,13 @@
 
 }
 
+.tt-suggestion.tt-cursor {
+    color: #fff;
+    background-color: #0097cf;
+    cursor: pointer;
+
+}
+
 .tt-suggestion p {
     margin: 0;
 }

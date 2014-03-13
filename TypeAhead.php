@@ -27,6 +27,19 @@ class TypeAhead extends InputWidget
 	 * @see https://github.com/twitter/typeahead.js#usage
 	 */
 	public $clientOptions = [];
+	/**
+	 * @var array the datasets object arrays of the Bootstrap TypeAhead Js plugin.
+	 * @see https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#datasets
+	 */
+	public $dataSets = [];
+	/**
+	 * @var array of [[Bloodhound]] instances. Please note, that the widget is just calling the object to return its
+	 * client script. In order to use its adapter, you will have to set it on the widget [[dataSets]] source option
+	 * and using the object instance as [[Bloodhound::getAdapter()]] method. This is required to be able to use multiple
+	 * datasets with bloodhound engine.
+	 * @see https://gist.github.com/jharding/9458772#file-remote-js
+	 */
+	public $engines = [];
 
 	/**
 	 * @inheritdoc
@@ -38,13 +51,13 @@ class TypeAhead extends InputWidget
 		} else {
 			echo Html::textInput($this->name, $this->value, $this->options);
 		}
-		$this->registerPlugin();
+		$this->registerClientScript();
 	}
 
 	/**
 	 * Registers Twitter TypeAhead Bootstrap plugin and the related events
 	 */
-	protected function registerPlugin()
+	protected function registerClientScript()
 	{
 		$view = $this->getView();
 
@@ -54,9 +67,26 @@ class TypeAhead extends InputWidget
 
 		$options = $this->clientOptions !== false && !empty($this->clientOptions)
 			? Json::encode($this->clientOptions)
-			: '';
+			: 'null';
 
-		$js = "jQuery('#$id').typeahead($options);";
-		$view->registerJs($js);
+		foreach($this->dataSets as $dataSet) {
+			if(empty($dataSet)) {
+				continue;
+			}
+			$dataSets[] = Json::encode($dataSet);
+		}
+
+		$dataSets = !empty($dataSets)
+			? implode(", ", $dataSets)
+			: '{}';
+
+		foreach ($this->engines as $bloodhound) {
+			if ($bloodhound instanceof Bloodhound) {
+				$js[] = $bloodhound->getClientScript();
+			}
+		}
+
+		$js[] = "jQuery('#$id').typeahead($options, $dataSets);";
+		$view->registerJs(implode("\n", $js));
 	}
 }

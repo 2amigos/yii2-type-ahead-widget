@@ -1,5 +1,5 @@
 TypeAhead Widget for Yii2
-==============================
+=========================
 
 Renders a [Twitter Typeahead.js Bootstrap plugin](https://github.com/twitter/typeahead.js) widget.
 
@@ -31,20 +31,41 @@ Usage
 Using a model and a `remote` configuration:
 
 ```
+use dosamigos\typeahead\BloodHound;
 use dosamigos\typeahead\TypeAhead;
+use yii\helpers\Url;
 
-<?=TypeAhead::widget([
-    'model' => $model,
-    'attribute' => 'country',
-    'options' => ['class' => 'form-control', 'placeholder' => 'Enter country'],
-    'clientOptions' => [
-    	'name' => 'countries', // datum identifier
-    	'remote' => [
-    	   'url' => yii\helpers\Html::url(['country/autocomplete', 'q'=>'-QUERY-']),
-    	   'widlcard' => '-QUERY-'
-    	]
+<?php
+    $engine = new \dosamigos\typeahead\BloodHound([
+        'name' => 'countriesEngine',
+        'clientOptions' => [
+            'datumTokenizer' => new \yii\web\JsExpression("Bloodhound.tokenizers.obj.whitespace('name')"),
+            'queryTokenizer' => new \yii\web\JsExpression("Bloodhound.tokenizers.whitespace"),
+            'remote' => [
+                'url' => Url::to(['country/autocomplete', 'query'=>'QRY']),
+                'wildcard' => 'QRY'
+            ]
+        ]
+    ]);
+?>
+<?= $form->field($model, 'country')->widget(
+    TypeAhead::className(),
+    [
+        'options' => ['class' => 'form-control'],
+        'engines' => [ $engine ],
+        'clientOptions' => [
+            'highlight' => true,
+            'minLength' => 3
+        ],
+        'dataSets' => [
+            [
+            'name' => 'countries',
+            'displayKey' => 'name',
+            'source' => $engine->getAdapterScript()
+            ]
+        ]
     ]
-]);?>
+);?>
 ```
 Note the use of the custom `wildcard`. It is required as if we use `typeahead.js` default's wildcard (`%QUERY`), Yii2 will automatically URL encode it thus making the wrong configuration for token replacement. 
 
@@ -113,5 +134,5 @@ Please, check the [typeahead.js plugin](https://github.com/twitter/typeahead.js)
 
 
 > [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)  
-<i>Web development has never been so fun!</i>
+<i>Web development has never been so fun!</i>  
 [www.2amigos.us](http://www.2amigos.us)
