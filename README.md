@@ -7,10 +7,10 @@ Installation
 ------------
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Either run
+Either run (used `dev-master` but once Yii is stable we will update the libraries with proper versions)
 
 ```
-php composer.phar require "2amigos/yii2-type-ahead-widget" "*"
+php composer.phar require "2amigos/yii2-type-ahead-widget" "dev-master"
 ```
 or add
 
