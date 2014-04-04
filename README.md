@@ -31,12 +31,12 @@ Usage
 Using a model and a `remote` configuration:
 
 ```
-use dosamigos\typeahead\BloodHound;
+use dosamigos\typeahead\Bloodhound;
 use dosamigos\typeahead\TypeAhead;
 use yii\helpers\Url;
 
 <?php
-    $engine = new \dosamigos\typeahead\BloodHound([
+    $engine = new \dosamigos\typeahead\Bloodhound([
         'name' => 'countriesEngine',
         'clientOptions' => [
             'datumTokenizer' => new \yii\web\JsExpression("Bloodhound.tokenizers.obj.whitespace('name')"),
