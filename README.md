@@ -84,7 +84,7 @@ class AutocompleteAction extends Action
 
 	public $field;
 
-	public $clientIdGetParamName = 'q';
+	public $clientIdGetParamName = 'query';
 
 	public $searchPrefix = '';
 
