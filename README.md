@@ -60,7 +60,7 @@ use yii\helpers\Url;
         'dataSets' => [
             [
             'name' => 'countries',
-            'displayKey' => 'name',
+            'displayKey' => 'value',
             'source' => $engine->getAdapterScript()
             ]
         ]
@@ -84,7 +84,7 @@ class AutocompleteAction extends Action
 
 	public $field;
 
-	public $clientIdGetParamName = 'q';
+	public $clientIdGetParamName = 'query';
 
 	public $searchPrefix = '';
 
