@@ -36,7 +36,7 @@ use dosamigos\typeahead\TypeAhead;
 use yii\helpers\Url;
 
 <?php
-    $engine = new \dosamigos\typeahead\Bloodhound([
+    $engine = new Bloodhound([
         'name' => 'countriesEngine',
         'clientOptions' => [
             'datumTokenizer' => new \yii\web\JsExpression("Bloodhound.tokenizers.obj.whitespace('name')"),
