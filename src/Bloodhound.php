@@ -22,47 +22,47 @@ use yii\web\JsExpression;
  */
 class Bloodhound extends Object
 {
-	/**
-	 * @var string the engine js name
-	 */
-	public $name;
-	/**
-	 * @var array the configuration of Bloodhound suggestion engine.
-	 * @see https://github.com/twitter/typeahead.js/blob/master/doc/bloodhound.md#options
-	 */
-	public $clientOptions = [];
+    /**
+     * @var string the engine js name
+     */
+    public $name;
+    /**
+     * @var array the configuration of Bloodhound suggestion engine.
+     * @see https://github.com/twitter/typeahead.js/blob/master/doc/bloodhound.md#options
+     */
+    public $clientOptions = [];
 
-	/**
-	 * @inheritdoc
-	 * @throws \yii\base\InvalidConfigException
-	 */
-	public function init()
-	{
-		if ($this->name === null) {
-			throw new InvalidConfigException("'name' cannot be null.");
-		}
-		parent::init();
-	}
+    /**
+     * @inheritdoc
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function init()
+    {
+        if ($this->name === null) {
+            throw new InvalidConfigException("'name' cannot be null.");
+        }
+        parent::init();
+    }
 
-	/**
-	 * Returns the engine adapter. To be used to configure [[TypeAhead::dataSets]] `source` option.
-	 * @return JsExpression
-	 */
-	public function getAdapterScript()
-	{
-		return new JsExpression("{$this->name}.ttAdapter()");
-	}
+    /**
+     * Returns the engine adapter. To be used to configure [[TypeAhead::dataSets]] `source` option.
+     * @return JsExpression
+     */
+    public function getAdapterScript()
+    {
+        return new JsExpression("{$this->name}.ttAdapter()");
+    }
 
-	/**
-	 * Returns the javascript initialization code
-	 * @return string
-	 */
-	public function getClientScript()
-	{
-		$options = $this->clientOptions !== false && !empty($this->clientOptions)
-			? Json::encode($this->clientOptions)
-			: '{}';
+    /**
+     * Returns the javascript initialization code
+     * @return string
+     */
+    public function getClientScript()
+    {
+        $options = $this->clientOptions !== false && !empty($this->clientOptions)
+            ? Json::encode($this->clientOptions)
+            : '{}';
 
-		return "var {$this->name} = new Bloodhound($options);\n{$this->name}.initialize();";
-	}
+        return "var {$this->name} = new Bloodhound($options);\n{$this->name}.initialize();";
+    }
 }
