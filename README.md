@@ -60,9 +60,9 @@ use yii\helpers\Url;
         ],
         'dataSets' => [
             [
-            'name' => 'countries',
-            'displayKey' => 'value',
-            'source' => $engine->getAdapterScript()
+                'name' => 'countries',
+                'displayKey' => 'value',
+                'source' => $engine->getAdapterScript()
             ]
         ]
     ]
