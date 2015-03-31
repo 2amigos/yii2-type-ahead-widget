@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link href="/1/css/bootstrap.css" rel="stylesheet">
+<link href="/3/css/bootstrap-typeahead.css" rel="stylesheet"></head>
+<body>
+
+<input type="text" id="model-test" name="Model[test]">
+<input type="text" id="w0" name="test">
+<input type="text" id="w1" name="test"><script src="/2/jquery.js"></script>
+<script src="/1/js/bootstrap.js"></script>
+<script src="/0/typeahead.bundle.js"></script>
+<script type="text/javascript">jQuery(document).ready(function () {
+jQuery('#model-test').typeahead(null, {});
+jQuery('#w0').typeahead(null, {});
+var test = new Bloodhound({});
+test.initialize();
+jQuery('#w1').typeahead(null, "bar");
+});</script></body>
+</html>
