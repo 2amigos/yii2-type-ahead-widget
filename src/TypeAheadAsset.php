@@ -16,9 +16,8 @@ use yii\web\AssetBundle;
  */
 class TypeAheadAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-type-ahead-widget/assets';
-
+    public $sourcePath = '@vendor/2amigos/yii2-type-ahead-widget/src/assets';
     public $css = [
-        'css/bootstrap-typeahead.css'
+        'css/bootstrap-typeahead.css',
     ];
 }

@@ -16,16 +16,12 @@ use yii\web\AssetBundle;
  */
 class TypeAheadPluginAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/twitter/typeahead.js/dist';
-
+    public $sourcePath = '@bower/typeahead.js/dist';
+    public $js = [
+        'typeahead.bundle.js',
+    ];
     public $depends = [
         'yii\bootstrap\BootstrapPluginAsset',
-        'dosamigos\typeahead\TypeAheadAsset'
+        'dosamigos\typeahead\TypeAheadAsset',
     ];
-
-    public function init()
-    {
-        $this->js = YII_DEBUG ? ['typeahead.bundle.js'] : ['typeahead.bundle.min.js'];
-        parent::init();
-    }
 }
