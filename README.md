@@ -59,7 +59,7 @@ use yii\helpers\Url;
             'minLength' => 3
         ],
         'clientEvents' => [
-            'typeahead:select' => 'function () { console.log('event "select" occured.'); }'
+            'typeahead:selected' => 'function () { console.log(\'event "selected" occured.\'); }'
         ],
         'dataSets' => [
             [
