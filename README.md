@@ -58,6 +58,9 @@ use yii\helpers\Url;
             'highlight' => true,
             'minLength' => 3
         ],
+        'clientEvents' => [
+            'typeahead:selected' => 'function () { console.log(\'event "selected" occured.\'); }'
+        ],
         'dataSets' => [
             [
                 'name' => 'countries',

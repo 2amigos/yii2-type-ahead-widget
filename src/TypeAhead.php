@@ -29,6 +29,12 @@ class TypeAhead extends InputWidget
      */
     public $clientOptions = [];
     /**
+     * @var array the event handlers for the Bootstrap TypeAhead JS plugin.
+     * Please refer to the Bootstrap TypeAhead plugin Web page for possible events.
+     * @see https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#custom-events
+    */
+    public $clientEvents = [];
+    /**
      * @var array the datasets object arrays of the Bootstrap TypeAhead Js plugin.
      * @see https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#datasets
      */
@@ -88,6 +94,11 @@ class TypeAhead extends InputWidget
         }
 
         $js[] = "jQuery('#$id').typeahead($options, $dataSets);";
+
+        foreach ($this->clientEvents as $eventName => $handler) {
+            $js[] = "jQuery('#$id').on('$eventName', $handler);";
+        }
+
         $view->registerJs(implode("\n", $js));
     }
 }
