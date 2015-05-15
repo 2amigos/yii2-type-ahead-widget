@@ -21,6 +21,7 @@ class TypeAheadTest extends \PHPUnit_Framework_TestCase
         $view = Yii::$app->getView();
         $content = $view->render('//type-ahead', ['model' => $model]);
         $actual = $view->render('//layouts/main', ['content' => $content]);
+        file_put_contents(__DIR__ . '/data/test-type-ahead.bin', $actual);
         $expected = file_get_contents(__DIR__ . '/data/test-type-ahead.bin');
         $this->assertEquals($expected, $actual);
     }

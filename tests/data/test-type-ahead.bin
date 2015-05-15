@@ -17,5 +17,6 @@ jQuery('#w0').typeahead(null, {});
 var test = new Bloodhound({});
 test.initialize();
 jQuery('#w1').typeahead(null, "bar");
+jQuery('#w1').on('test', function () { });
 });</script></body>
 </html>

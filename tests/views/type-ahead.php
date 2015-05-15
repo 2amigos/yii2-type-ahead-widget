@@ -2,6 +2,7 @@
 
 use dosamigos\typeahead\Bloodhound;
 use dosamigos\typeahead\TypeAhead;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $model tests\models\Model */
@@ -24,5 +25,8 @@ use dosamigos\typeahead\TypeAhead;
     'dataSets' => [
         'foo' => 'bar',
         [],
+    ],
+    'clientEvents' => [
+        'test' => new JsExpression('function () { }'),
     ],
 ]) ?>
