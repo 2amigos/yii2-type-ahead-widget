@@ -8,7 +8,7 @@
 namespace dosamigos\typeahead;
 
 use yii\base\InvalidConfigException;
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\helpers\Json;
 use yii\web\JsExpression;
 
@@ -20,7 +20,7 @@ use yii\web\JsExpression;
  * @link http://www.2amigos.us/
  * @package dosamigos\typeahead
  */
-class Bloodhound extends Object
+class Bloodhound extends BaseObject
 {
     /**
      * @var string the engine js name
