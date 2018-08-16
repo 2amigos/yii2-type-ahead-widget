@@ -17,7 +17,7 @@ class BloodhoundTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetAdapterScript()
     {
-        $actual = JSON::encode((new Bloodhound(['name' => 'test']))->getAdapterScript());
+        $actual = Json::encode((new Bloodhound(['name' => 'test']))->getAdapterScript());
         $this->assertEquals('test.ttAdapter()', $actual);
     }
 
