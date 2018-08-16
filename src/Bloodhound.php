@@ -7,8 +7,8 @@
 
 namespace dosamigos\typeahead;
 
-use yii\base\InvalidConfigException;
 use yii\base\BaseObject;
+use yii\base\InvalidConfigException;
 use yii\helpers\Json;
 use yii\web\JsExpression;
 
