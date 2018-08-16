@@ -16,13 +16,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```bash
-$ composer require 2amigos/yii2-type-ahead-widget:~1.0
+$ composer require 2amigos/yii2-type-ahead-widget:~2.0
 ```
 
 or add
 
 ```
-"2amigos/yii2-type-ahead-widget": "~1.0"
+"2amigos/yii2-type-ahead-widget": "~2.0"
 ```
 
 to the `require` section of your `composer.json` file.
@@ -59,7 +59,7 @@ use yii\helpers\Url;
             'minLength' => 3
         ],
         'clientEvents' => [
-            'typeahead:selected' => 'function () { console.log(\'event "selected" occured.\'); }'
+            'typeahead:selected' => 'function (e, o) { console.log("event \'selected\' occured on " + o.value + "."); }'
         ],
         'dataSets' => [
             [
