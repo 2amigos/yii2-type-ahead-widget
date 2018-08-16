@@ -11,7 +11,7 @@
 <input type="text" id="w1" name="test"><script src="/2/jquery.js"></script>
 <script src="/1/js/bootstrap.js"></script>
 <script src="/0/typeahead.bundle.js"></script>
-<script type="text/javascript">jQuery(document).ready(function () {
+<script>jQuery(function ($) {
 jQuery('#model-test').typeahead(null, {});
 jQuery('#w0').typeahead(null, {});
 var test = new Bloodhound({});
